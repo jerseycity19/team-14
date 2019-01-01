@@ -43,9 +43,6 @@ def new_user():
 		"provider": "Dr. Srihari Sritharan"
 	}
 
-	if query.firstname is None or query.lastname is None:
-		return
-
 	cursor = db.users.find(query)
 	if cursor.count() == 0:
 		print("new user!")
