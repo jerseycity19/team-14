@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div style="margin: 35px">
+    <h5 class="center-align">Chatbot Severity Scores</h5>
+    <i class="center">User expressed concern about family members struggling with addiction. ShatterProofLive sent user several resources to best help deal with this situation.</i>
+    <canvas id="line-chart" width="600" height="450"></canvas>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+    new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+            labels: ['9/29', '9/29', '9/30', '10/1', '10/2', '10/3', '10/4', '10/5', '10/6', '10/7'],
+            datasets: [{
+                data: [1200, 1173, 1136, 1200, 1157, 1221, 1180, 1221, 1263, 1255],
+                label: "Patient-Chatbot Sessions",
+                borderColor: "#3e95cd",
+                fill: false
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: ''
+            }
+        }
+    });
+</script>
+{% endblock %}

@@ -48,6 +48,10 @@ def new_user():
 		"gender": res['gender'],
 		"provider": "Dr. Srihari Sritharan"
 	}
+
+	if query.firstname is None or query.lastname is None:
+		return
+
 	cursor = db.users.find(query)
 	if cursor.count() == 0:
 		print("new user!")
@@ -69,6 +73,9 @@ def patient(user_id):
 	return render_template('patient.html', patient=cursor[0]
 										 , num_scores=num_scores)
 
+@app.route("/analytics", methods=['GET'])
+def go_to_analytics():
+	return render_template('analytics.html')
 #------------------------------------------------------------------------------
 
 if __name__ == "__main__":
