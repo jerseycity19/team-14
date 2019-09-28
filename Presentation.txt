@@ -9,3 +9,9 @@ Second Slide: Problem Statement
 - Small team/low budget/non profit ===> automation is king
 - Seeking more online engagement, active users, and donations.
 
+
+
+	Shatterproof a nonprofit with half of your user engagement through social media channels, especially facebook. Right now, we are at 140k. That is 140k different lives touched for the better. 140k people who feel like they are not fighting this disease alone. Its very important to recognize the importance of this, but it is just as important to recognize we are nowhere near the goal. There is quite a journey ahead to help destigmatize addication and also assist the 20 million people who fight addiction on the road to recovery.
+
+	Our solution is an AI powered chatbot which will create an interactive and welcoming user experience while keeping the needs and resources of a nonprofit in mind. We will implement this using a facebook messenger chat bot that can assist victims of addiction or family and friends, or interested activists. 
+	
