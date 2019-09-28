@@ -65,33 +65,5 @@
             }
         }
     });
-
-    new Chart(document.getElementById("line-chart2"), {
-        type: 'line',
-        data: {
-            labels: ['8/20', '9/01', '9/09', '9/15', '9/16', '9/20', '9/25', '9/26', '10/6', '10/7'],
-            datasets: [{
-                data: [97, 85, 85, 50, 48, 33, 36, 36, 57, 45],
-                label: "Severity Score (AI)",
-                borderColor: "#3e95cd",
-                fill: false
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            title: {
-                display: true,
-                text: ''
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMin: 0,
-                        suggestedMax: 100
-                    }
-                }]
-            }
-        }
-    });
 </script>
 {% endblock %}
