@@ -16,14 +16,14 @@
 			</thead>
 			<tbody>
 				{% for p in patients %}
-				<tr onclick="window.location.href = 'patient/{{ p._id }}';">
+				<tr onclick="window.location.href = 'analytics';">
 					<td></td>
 					<td class="left-align hide-on-small-only"><img class="circle" src="{{ p.propic }}" style="max-width: 40px; margin-top: 0;"></td>
 					<td>{{ p.firstname }}</td>
 					<td>{{ p.lastname }}</td>
 					<td>{{ p.gender }}</td>
 					<td>{{ p.provider }}</td>
-					<td><span class="new badge"></span></td>
+					<td><span class="new badge blue lighten-2"></span></td>
 				</tr>
 				{% endfor %}
 			</tbody>

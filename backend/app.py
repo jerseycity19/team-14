@@ -22,10 +22,6 @@ DB_PORT = 49365
 DB_USER = 'shatterprooflive_main'
 DB_PASS = 'CODEFORGOOD2019'
 
-# connection = pymongo.mongo_client.MongoClient("mongodb+srv://shatterprooflive_main:CODEFORGOOD2019@cluster0-mcyvu.mongodb.net/test?retryWrites=true&w=majority")
-# db = connection[DB_NAME]
-# db.authenticate(DB_USER, DB_PASS)
-
 client = pymongo.MongoClient("mongodb+srv://shatterprooflive_main:CODEFORGOOD2019@cluster1-q2pxb.mongodb.net/")
 db = client.shatterprooflive
 print(db)
@@ -35,28 +31,37 @@ print(db)
 # routes
 @app.route("/")
 def main():
-	post = {}
+	cursor = db.users.find({})
+	patients = []
+	for c in cursor:
+		patients.append(c)
+	return render_template('index.html', patients=patients)
 
-	print(post)
 
-	result = db.users.insert_one(post).inserted_id
-	return render_template('index.html')
+@app.route("/new_user", methods=['POST'])
+def new_user():
+	res = request.get_json(force=True)
+	query = {
+		"firstname": res['first name'],
+		"lastname": res['last name'],
+		"propic": res['profile pic url'],
+		"gender": res['gender'],
+		"provider": "Dr. Srihari Sritharan"
+	}
 
+	if query.firstname is None or query.lastname is None:
+		return
 
-@app.route("/examplePost", methods=['POST'])
-def examplePost():
-	print(request.get_json(force=True))
-	return jsonify(test='test')
-
-@app.route("/data")
-def get_data():
-	return jsonify(db.users)
+	cursor = db.users.find(query)
+	if cursor.count() == 0:
+		print("new user!")
+		result = db.users.insert_one(query).inserted_id
+	return ""
 
 @app.route("/analytics", methods=['GET'])
 def go_to_analytics():
 	return render_template('analytics.html')
 #------------------------------------------------------------------------------
-
 
 if __name__ == "__main__":
 	app.run()
