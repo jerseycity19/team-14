@@ -6,11 +6,11 @@
 			<thead>
 				<tr>
 					<th></th>
-					<th class=" hide-on-small-only"></th>
+					<th></th>
 					<th>First</th>
 					<th>Last</th>
-					<th>Gender</th>
-					<th>Provider</th>
+					<th class="left-align hide-on-small-only">Gender</th>
+					<th class="left-align hide-on-small-only">Provider</th>
 					<th>Status</th>
 				</tr>
 			</thead>
@@ -19,11 +19,11 @@
 				{% if p.firstname %}
 					<tr onclick="window.location.href = 'analytics';">
 						<td></td>
-						<td class="left-align hide-on-small-only"><img class="circle" src="{{ p.propic }}" style="max-height: 40px; width: 40px; margin-top: 0;"></td>
+						<td><img class="circle" src="{{ p.propic }}" style="max-height: 40px; width: 40px; margin-top: 0;"></td>
 						<td>{{ p.firstname }}</td>
 						<td>{{ p.lastname }}</td>
-						<td>{{ p.gender }}</td>
-						<td>{{ p.provider }}</td>
+						<td class="left-align hide-on-small-only">{{ p.gender }}</td>
+						<td class="left-align hide-on-small-only">{{ p.provider }}</td>
 						<td><span class="new badge blue lighten-2"></span></td>
 					</tr>
 				{% endif %}

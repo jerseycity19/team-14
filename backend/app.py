@@ -76,6 +76,10 @@ def patient(user_id):
 @app.route("/analytics", methods=['GET'])
 def go_to_analytics():
 	return render_template('analytics.html')
+
+@app.route("/about", methods=['GET'])
+def go_to_about():
+	return render_template('about.html')
 #------------------------------------------------------------------------------
 
 if __name__ == "__main__":
