@@ -16,12 +16,6 @@ app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}}, headers='Content-Type')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
-DB_NAME = 'shatterprooflive'
-DB_HOST = ''
-DB_PORT = 49365
-DB_USER = 'shatterprooflive_main'
-DB_PASS = 'CODEFORGOOD2019'
-
 client = pymongo.MongoClient("mongodb+srv://shatterprooflive_main:CODEFORGOOD2019@cluster1-q2pxb.mongodb.net/")
 db = client.shatterprooflive
 print(db)

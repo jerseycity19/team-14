@@ -1,10 +1,27 @@
 {% extends "base.html" %}
 
 {% block main %}
+
 <div style="margin: 35px">
-    <h5 class="center-align">Chatbot Severity Scores</h5>
-    <p class="center-align"><i>User expressed concern about family members struggling with addiction. ShatterProofLive sent user several resources to best help deal with this situation.</i></p>
-    <canvas id="line-chart" width="80%" style="height: 20vh"></canvas>
+    <h4 style="margin-top: 0;" class="left-align"><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/53347538_2341823885862348_6184546361262735360_n.jpg?_nc_cat=105&_nc_oc=AQkAEEuXHWGV3HpswSdLHjcv9h2YSaMjkI0CrELKygo7aP8Huro7xpSBsZyZrTEIUXg&_nc_ht=scontent-lga3-1.xx&oh=f7bc9c7f2b4f4f2e0df9a72950dee7e7&oe=5DFD2A79" class="circle" style="height: 40px; width: 40px; margin-top: 0;">
+    &nbsp; 
+    Eash Aggarwal 
+    <i class="material-icons grey-text">email</i>  
+    <i class="material-icons grey-text">star_outline</i>  
+    <i class="material-icons red-text">add_alert</i> </h4>
+</div>
+
+<div style="margin: 35px">
+    <h5 class="left-align">Activity:</h5>
+    <ul class="collection">
+            <li class="left-align collection-item" style="background-color: transparent;">09/26/2019: <i>User expressed concern about struggling with addiction. ShatterProofLive sent our proprietary chatbot diagnostic questionnaire.</i></li>
+            <li class="left-align collection-item" style="background-color: transparent;">09/16/2019: <i>User asked to learn more information about ShatterProof. ShatterProofLive redirected user to https://www.shatterproof.org/about.</i></li>
+            <li class="left-align collection-item" style="background-color: transparent;">09/15/2019: <i>User expressed concern about family members struggling with addiction. ShatterProofLive sent user randomized resources to best help deal with this situation.</i></li>
+            <li class="left-align collection-item" style="background-color: transparent;">09/09/2019: <i>User expressed concern about family members struggling with addiction. ShatterProofLive sent user several resources to best help deal with this situation.</i></li>
+    </ul>
+    <br>
+    <h5 class="left-align" style="margin-bottom: 0;">PHQ Severity Scores:</h5>
+    <canvas id="line-chart" style="max-height: 45vh;"></canvas>
 </div>
 
 {% endblock %}
@@ -13,6 +30,34 @@
 {{ super() }}
 <script type="text/javascript">
     new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+            labels: ['8/20', '9/01', '9/09', '9/15', '9/16', '9/20', '9/25', '9/26', '10/6', '10/7'],
+            datasets: [{
+                data: [97, 85, 85, 50, 48, 33, 36, 36, 57, 45],
+                label: "Severity Score (AI)",
+                borderColor: "#3e95cd",
+                fill: false
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: ''
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+    });
+
+    new Chart(document.getElementById("line-chart2"), {
         type: 'line',
         data: {
             labels: ['8/20', '9/01', '9/09', '9/15', '9/16', '9/20', '9/25', '9/26', '10/6', '10/7'],
