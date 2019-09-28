@@ -22,18 +22,24 @@ DB_PORT = 49365
 DB_USER = 'shatterprooflive_main'
 DB_PASS = 'CODEFORGOOD2019'
 
-# connection = pymongo.mongo_client.MongoClient(DB_HOST, DB_PORT)
+# connection = pymongo.mongo_client.MongoClient("mongodb+srv://shatterprooflive_main:CODEFORGOOD2019@cluster0-mcyvu.mongodb.net/test?retryWrites=true&w=majority")
 # db = connection[DB_NAME]
 # db.authenticate(DB_USER, DB_PASS)
 
-client = pymongo.MongoClient("mongodb+srv://shatterprooflive_main:<password>@cluster0-mcyvu.mongodb.net/test?retryWrites=true&w=majority")
-db = client.test
+client = pymongo.MongoClient("mongodb+srv://shatterprooflive_main:CODEFORGOOD2019@cluster1-q2pxb.mongodb.net/")
+db = client.shatterprooflive
+print(db)
 
 #------------------------------------------------------------------------------
 
 # routes
 @app.route("/")
 def main():
+	post = {}
+
+	print(post)
+
+	result = db.users.insert_one(post).inserted_id
 	return render_template('index.html')
 
 
