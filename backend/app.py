@@ -48,7 +48,13 @@ def examplePost():
 	print(request.get_json(force=True))
 	return jsonify(test='test')
 
+@app.route("/data")
+def get_data():
+	return jsonify(db.users)
 
+@app.route("/analytics", methods=['GET'])
+def go_to_analytics():
+	return render_template('analytics.html')
 #------------------------------------------------------------------------------
 
 

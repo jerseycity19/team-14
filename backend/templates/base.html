@@ -54,7 +54,7 @@
 
         <li><a href="/"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="#!"><i class="material-icons">person_add</i>New Patient</a></li>
-        <li><a href="#!"><i class="material-icons">lightbulb_outline</i>Analytics</a></li>
+        <li><a href="/analytics"><i class="material-icons">lightbulb_outline</i>Analytics</a></li>
         <li><a href="#!"><i class="material-icons">info_outline</i>About Us</a></li>
 
         <li><div class="divider"></div></li>
@@ -81,13 +81,34 @@
         <!-- JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="{{ url_for('static',filename='js/index.js') }}"></script>
-        
+        <script src="{{ url_for('static',filename='js/analytics.js') }}"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $('.sidenav').sidenav();
             });
+        </script>
+        <script type="text/javascript">
+            new Chart(document.getElementById("line-chart"), {
+                    type: 'line',
+                    data: {
+                        labels: ['9/29', '9/29', '9/30', '10/1', '10/2', '10/3', '10/4', '10/5', '10/6', '10/7'],
+                        datasets: [{
+                            data: [1200, 1173, 1136, 1200, 1157, 1221, 1180, 1221, 1263, 1255],
+                            label: "Patien-App Sessions",
+                            borderColor: "#3e95cd",
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        title: {
+                            display: true,
+                            text: 'Num of consultations through app per day'
+                        }
+                    }
+                });
         </script>
     {% endblock %}
 </body>
