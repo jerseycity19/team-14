@@ -54,6 +54,21 @@ def new_user():
 		result = db.users.insert_one(query).inserted_id
 	return ""
 
+@app.route("/patient/<string:user_id>")
+def patient(user_id):
+	cursor = db.patients.find({'_id': ObjectId(user_id)})
+
+	for key,val in scores.items():
+		total = 0
+		if val:
+			for v in val:
+				total += button_to_val[key][v]
+		num_scores["depression"][key] += total
+		print(key, num_scores["depression"][key])
+
+	return render_template('patient.html', patient=cursor[0]
+										 , num_scores=num_scores)
+
 #------------------------------------------------------------------------------
 
 if __name__ == "__main__":
