@@ -8,24 +8,16 @@ class App extends Component {
   state = {
     name: ''
   }
-  async componentDidMount() {
-    try {
-      const response = await fetch('http://127.0.0.1:5000/examplePost', {
-        method: 'POST',
-        headers: {
-          'Content- Type': 'application / json'
-        },
-        body: JSON.stringify({
-          test: 'trg'
-        })
+  componentDidMount() {
+      const request = JSON.stringify({
+        test: 'trg'
       });
-      const json = response.json();
-      console.log(json);
-      console.log("this is true");
-      this.setState({ name: json })
-    } catch(error) {
-      console.log(error);
-    }
+      fetch('http://127.0.0.1:5000/examplePost', {
+        method: 'POST',
+        body: request 
+      }).then(res => {
+        console.log(res.json())
+      })
   }
   render() {
     return (
@@ -33,7 +25,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            {this.state.name}
+            {JSON.stringify(this.state.name)}
         </p>
         <Test/>
           <a
