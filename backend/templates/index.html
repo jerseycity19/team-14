@@ -17,7 +17,7 @@
 			<tbody>
 				{% for p in patients %}
 				{% if p.firstname %}
-					<tr onclick="window.location.href = 'patient/{{ p._id }}';">
+					<tr onclick="window.location.href = 'patient/analytics';">
 						<td></td>
 						<td class="left-align hide-on-small-only"><img class="circle" src="{{ p.propic }}" style="max-height: 40px; width: 40px; margin-top: 0;"></td>
 						<td>{{ p.firstname }}</td>
