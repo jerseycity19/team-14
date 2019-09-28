@@ -2,3 +2,10 @@ First Slide: Logo
 ->	introduce your team
 
 Second Slide: Problem Statement
+->	Give background on Shatterproof, but not about what they do, more so their problems and how to address.
+
+- 140k/20M
+- primary online presence is on social media, especially facebook.
+- Small team/low budget/non profit ===> automation is king
+- Seeking more online engagement, active users, and donations.
+
