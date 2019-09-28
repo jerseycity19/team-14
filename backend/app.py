@@ -8,7 +8,6 @@ from flask import jsonify
 from flask_cors import CORS
 
 import pymongo
-import pymongo.MongoClient
 from bson.objectid import ObjectId
 
 # app and database
@@ -36,11 +35,7 @@ print(db)
 # routes
 @app.route("/")
 def main():
-	post = {
-		"author": "Mike",
-		"text": "My first blog post!",
-		"tags": "mike"
-	}
+	post = {}
 
 	print(post)
 
