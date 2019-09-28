@@ -2,6 +2,7 @@
   "name": "shatter-proof-live",
   "version": "0.1.0",
   "private": true,
+  "proxy": "localhost:5000", 
   "dependencies": {
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
