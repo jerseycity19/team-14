@@ -5,7 +5,7 @@ from flask import request
 from flask import redirect
 from flask import url_for
 from flask import jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 import pymongo
 from bson.objectid import ObjectId
@@ -45,8 +45,8 @@ def main():
 
 @app.route("/examplePost", methods=['POST'])
 def examplePost():
-	print(request.values.get("test"))
-	return "test"
+	print(request.get_json(force=True))
+	return jsonify(test='test')
 
 
 #------------------------------------------------------------------------------
